@@ -186,7 +186,7 @@ Implemented in `trading/pair_specific_gbpjpy_eurusd_engine.py`, configured in `t
 Evaluated Mon–Thu `06:00–16:00 UTC` (once per completed H1 bar via `last_eval_bar` guard, provided zero live `GBPJPY` positions exist across **all** engines):
 
 1. **Path A — `VIX / Credit` Crash Unwind Short (Checked First, Tag `GJ_VIX_UNWIND`):**
-   - Condition: `(vix_z5 > +1.0 OR credit_hyg_ief_z5 < -1.0)` **AND** `Close < min(Low[-25:-1])` (24h low break) **AND** `gu_z4 < 0` **AND** `uj_z4 < 0`.
+   - Condition: `(vix_z5 > +1.0 OR credit_hyg_ief_z5 < -1.0)` **AND** `PredZ <= 0.00` (`VIX_UNWIND_MAX_PRED_Z = 0.0`, preventing unwind shorts against a bullish ML signal) **AND** `Close < min(Low[-25:-1])` (24h low break) **AND** `gu_z4 < 0` **AND** `uj_z4 < 0`.
    - Fires `SELL` with tighter crisis brackets: **`SL = 2.0 * ATR20`**, **`TP = 3.5 * ATR20`**.
 2. **Path B — Purged Walk-Forward ML Signal (Tag `GJ_WF`):**
    - **Asymmetric Long Threshold:** `PredZ >= +1.30` (collects positive MT5 overnight swap on `GBPJPY` longs).

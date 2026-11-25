@@ -90,6 +90,7 @@ def load_or_init_config() -> dict:
             "MAX_HOLD_HOURS_LONG": 24,
             "MAX_HOLD_HOURS_SHORT": 20,
             "ENABLE_VIX_CREDIT_UNWIND": True,
+            "VIX_UNWIND_MAX_PRED_Z": 0.0,
             "ENABLE_RISK_OFF_LONG_VETO": True,
             "RISK_OFF_VIX_Z5_MAX": 1.0,
             "RISK_OFF_CREDIT_Z5_MIN": -1.0,
@@ -331,8 +332,9 @@ class PairSpecificGBPJPYEURUSDEngine:
         sig = 0
         sl_m, tp_m, tag = float(gj_cfg.get("SL_ATR_MULT", 2.2)), float(gj_cfg.get("TP_ATR_MULT", 2.8)), "GJ_WF"
         lo24 = float(l.iloc[-25:-1].min())
+        max_unw_pz = float(gj_cfg.get("VIX_UNWIND_MAX_PRED_Z", 0.0))
         if gj_cfg.get("ENABLE_VIX_CREDIT_UNWIND", True) and (macro_snap["vix_z5"] > 1.0 or macro_snap["credit_hyg_ief_z5"] < -1.0):
-            if float(c.iloc[-1]) < lo24 and feat_map["gu_z4"] < 0 and feat_map["uj_z4"] < 0:
+            if pred_z <= max_unw_pz and float(c.iloc[-1]) < lo24 and feat_map["gu_z4"] < 0 and feat_map["uj_z4"] < 0:
                 sig = -1; sl_m = 2.0; tp_m = 3.5; tag = "GJ_VIX_UNWIND"
 
         if sig == 0:

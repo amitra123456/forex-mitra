@@ -12,7 +12,7 @@ Production MetaTrader 5 systematic FX, precious metals, ETF, and cash-management
    - **Exits:** `2.5× ATR` initial SL (`2.0×` FOMC Drift), continuous `4.0× ATR` Chandelier trailing stop (`3.0×` FOMC), Friday `15:45 NY` auto-flat
 2. **Pair-Specific `GBPJPY` Purged Walk-Forward MTF + Macro + COT (+ VIX/Credit Unwind)** — `Magic 777490`
    - **Instruments:** `GBPJPY` (`EURUSD` Bond-Convergence `Magic 777390` included in code, disabled by design)
-   - **Model:** 24-feature standardized shallow `LGBMRegressor` (`2026 H2`, 5-day purged embargo) + asymmetric carry thresholds (`PredZ >= +1.30` Long / `<= -1.60` Short) + VIX/Credit crash unwind short + hard Risk-Off long veto
+   - **Model:** 24-feature standardized shallow `LGBMRegressor` (`2026 H2`, 5-day purged embargo) + asymmetric carry thresholds (`PredZ >= +1.30` Long / `<= -1.60` Short) + VIX/Credit crash unwind short (gated by `PredZ <= 0.00`) + hard Risk-Off long veto
    - **Exits:** `2.2× ATR` SL / `2.8× ATR` TP (`2.0× / 3.5×` unwind), `24h` Long / `20h` Short max hold, Friday `15:45 NY` auto-flat
 3. **`BOXX` T-Bill Box Cash Sleeve** — `Magic 777899`
    - **Instruments:** `BOXX`
