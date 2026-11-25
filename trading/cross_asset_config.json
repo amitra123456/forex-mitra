@@ -1,0 +1,136 @@
+{
+  "ENGINE_NAME": "CROSS_ASSET_80H_DONCHIAN_TREND",
+  "ENABLED": true,
+  "MAGIC_BASE": 777880,
+  "RISK_PCT_PER_TRADE": 0.8,
+  "RISK_GOVERNOR": {
+    "ENABLED": true,
+    "BASE_RISK_PCT": 0.8,
+    "TARGET_ANNUAL_VOL_PCT": 10.0,
+    "MIN_VOL_RISK_PCT": 0.35,
+    "MAX_VOL_RISK_PCT": 1.05,
+    "DD_TIER1_PCT": 7.0,
+    "DD_TIER1_MULT": 0.65,
+    "DD_TIER2_PCT": 12.0,
+    "DD_TIER2_MULT": 0.45,
+    "REFERENCE_CAPITAL_USD": null,
+    "MT5_ACTIVE_DEPOSIT_USD": null
+  },
+  "MAX_CONCURRENT_POSITIONS": 5,
+  "MAX_TOTAL_MARGIN_FRAC": 0.6,
+  "ETF_MAX_NOTIONAL_FRAC": 0.18,
+  "TREND_Z_THRESH": 0.3,
+  "SL_ATR_MULT": 2.5,
+  "TRAIL_ATR_MULT": 4.0,
+  "SWAP_VETO_MIN_R_PER_NIGHT": -0.02,
+  "SWAP_OVERRIDE_EXTREME_TREND_Z": 1.25,
+  "CARRY_PRIORITY_WEIGHT": 15.0,
+  "ENABLE_EXTERNAL_JPY_MACRO_GATE": true,
+  "JPY_MACRO_VETO_MIN_SCORE": -0.2,
+  "MACRO_PRIORITY_WEIGHT": 0.75,
+  "ENABLE_FOMC_BOND_DRIFT": true,
+  "BREAKEVEN_PROTECTION": "PERMANENTLY_DISABLED_BY_DESIGN",
+  "ASSETS": {
+    "XAUUSD": {
+      "enabled": true,
+      "class": "24H",
+      "group": "METAL",
+      "group_max": 1,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "XAUEUR": {
+      "enabled": true,
+      "class": "24H",
+      "group": "METAL",
+      "group_max": 1,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "USDJPY": {
+      "enabled": true,
+      "class": "24H",
+      "group": "JPY",
+      "group_max": 2,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "EURJPY": {
+      "enabled": true,
+      "class": "24H",
+      "group": "JPY",
+      "group_max": 2,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "GBPJPY": {
+      "enabled": false,
+      "note": "Handed off to trading/pair_specific_gbpjpy_eurusd_engine.py (Magic 777490: Purged Walk-Forward MTF+Macro+COT + VIX-Unwind)",
+      "class": "24H",
+      "group": "JPY",
+      "group_max": 2,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "AUDJPY": {
+      "enabled": true,
+      "class": "24H",
+      "group": "JPY",
+      "group_max": 2,
+      "chan_bars": 80,
+      "atr_bars": 20,
+      "m20_bars": 480,
+      "m60_bars": 1440
+    },
+    "IVV": {
+      "enabled": true,
+      "class": "ETF",
+      "group": "EQUITY",
+      "group_max": 2,
+      "chan_bars": 24,
+      "atr_bars": 14,
+      "m20_bars": 140,
+      "m60_bars": 420
+    },
+    "XLK": {
+      "enabled": true,
+      "class": "ETF",
+      "group": "EQUITY",
+      "group_max": 2,
+      "chan_bars": 24,
+      "atr_bars": 14,
+      "m20_bars": 140,
+      "m60_bars": 420
+    },
+    "TLT": {
+      "enabled": true,
+      "class": "ETF",
+      "group": "RATES",
+      "group_max": 1,
+      "chan_bars": 24,
+      "atr_bars": 14,
+      "m20_bars": 140,
+      "m60_bars": 420
+    },
+    "USO": {
+      "enabled": true,
+      "class": "ETF",
+      "group": "COMMOD",
+      "group_max": 1,
+      "chan_bars": 24,
+      "atr_bars": 14,
+      "m20_bars": 140,
+      "m60_bars": 420
+    }
+  }
+}

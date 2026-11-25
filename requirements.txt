@@ -1,0 +1,10 @@
+MetaTrader5
+numpy
+pandas
+joblib
+lightgbm
+scikit-learn
+yfinance
+psutil
+pyarrow
+tzdata

@@ -1,0 +1,41 @@
+{
+  "GBPJPY_PURGED_WF": {
+    "ENABLED": true,
+    "MAGIC": 777490,
+    "RISK_SCALE_OF_GOVERNOR": 1.0,
+    "LONG_Z_THRESH": 1.3,
+    "SHORT_Z_THRESH": -1.6,
+    "SL_ATR_MULT": 2.2,
+    "TP_ATR_MULT": 2.8,
+    "MAX_HOLD_HOURS_LONG": 24,
+    "MAX_HOLD_HOURS_SHORT": 20,
+    "ENABLE_VIX_CREDIT_UNWIND": true,
+    "ENABLE_RISK_OFF_LONG_VETO": true,
+    "RISK_OFF_VIX_Z5_MAX": 1.0,
+    "RISK_OFF_CREDIT_Z5_MIN": -1.0,
+    "RISK_OFF_JPY_MACRO_MIN": -0.2,
+    "BREAKEVEN_PROTECTION": "PERMANENTLY_DISABLED_BY_DESIGN"
+  },
+  "EURUSD_BOND_CONVERGENCE_H4": {
+    "ENABLED": false,
+    "NOTE": "Disabled by default: sole 12Y survivor (+16.9R 2015-2026), but flat (-1.4R / 25tr) in 2024-2026 OOS and carries negative dual swap.",
+    "MAGIC": 777390,
+    "RISK_SCALE_OF_GOVERNOR": 0.5,
+    "BOND_Z20_MIN": 0.85,
+    "EURUSD_D1_Z20_MAX": 0.6,
+    "H4_BREAKOUT_BARS": 12,
+    "SL_ATR_MULT": 2.2,
+    "TP_ATR_MULT": 3.0,
+    "MAX_HOLD_H4_BARS": 20,
+    "BREAKEVEN_PROTECTION": "PERMANENTLY_DISABLED_BY_DESIGN"
+  },
+  "BOXX_CASH_SLEEVE": {
+    "ENABLED": true,
+    "MAGIC": 777899,
+    "TARGET_EQUITY_FRAC": 0.25,
+    "MAX_ALPHA_MARGIN_TO_ENTER_FRAC": 0.35,
+    "RELEASE_ALPHA_MARGIN_FRAC": 0.42,
+    "MAX_SPREAD_USD": 0.03,
+    "NOTE": "Deploys 25% idle cash into MT5 BOXX Mon-Wed US RTH; auto-releases if alpha margin >=42%; flattens Fri 15:45 NY."
+  }
+}
